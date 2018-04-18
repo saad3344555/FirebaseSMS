@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "667316022742",
+    "firebase_url": "https://default-demo-app-4733b.firebaseio.com",
+    "project_id": "default-demo-app-4733b",
+    "storage_bucket": "default-demo-app-4733b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667316022742:android:fcfef757a832647b",
+        "android_client_info": {
+          "package_name": "com.google.firebase.quickstart.database"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667316022742-ecotqnm7tusk7ljptii1rg5ik2qp48dj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "667316022742-qjuqp6ujl8vffcvb4a5pjtgq41jt6m1k.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "667316022742-3lvk880mnjsvep7qqqj93k8mfmnd1emh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.firebase.quickstart.database",
+            "certificate_hash": "03a37b85703b58c34ebb8745b522e4f17695167d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn7NephzW43j73bLR_7GIpXaNCUIs9VWE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667316022742-ecotqnm7tusk7ljptii1rg5ik2qp48dj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667316022742:android:a282faa00e00eecd",
+        "android_client_info": {
+          "package_name": "o.pvt.firebasesms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667316022742-rvvncjkvc040sm5a6cgtrvimsa2b26lr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "o.pvt.firebasesms",
+            "certificate_hash": "6a792490195cc4fbad9eb43a0f94c0b375ed6b51"
+          }
+        },
+        {
+          "client_id": "667316022742-ecotqnm7tusk7ljptii1rg5ik2qp48dj.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "667316022742-qjuqp6ujl8vffcvb4a5pjtgq41jt6m1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn7NephzW43j73bLR_7GIpXaNCUIs9VWE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667316022742-ecotqnm7tusk7ljptii1rg5ik2qp48dj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
