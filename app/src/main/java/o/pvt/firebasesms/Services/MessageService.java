@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import java.security.Provider;
 
 /**
  * Created by Saad Abdul Qadir on 4/18/2018.
