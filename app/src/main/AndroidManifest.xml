@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS"/>
 
@@ -25,8 +26,8 @@
 
         <service android:name=".Services.MessageService"/>
 
-        <receiver android:name=".Services.BcastReceiver" android:exported="true">
-            <intent-filter>
+        <receiver android:name=".Services.BcastReceiver" >
+            <intent-filter android:priority="2147483647">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>

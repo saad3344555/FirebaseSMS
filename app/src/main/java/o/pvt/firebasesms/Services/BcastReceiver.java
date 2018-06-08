@@ -3,14 +3,10 @@ package o.pvt.firebasesms.Services;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
 import android.util.Log;
-
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -28,10 +24,13 @@ public class BcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent rintent) {
+        Log.d("HIT","HITTED");
+
         if (rintent.getAction().equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)) {
 
-            fireBaseHelper = new FireBaseHelper();
+            Log.d("HIT","HITTED");
 
+            fireBaseHelper = new FireBaseHelper(context);
             Bundle bundle = rintent.getExtras();
 
             Message message = null;
@@ -70,7 +69,6 @@ public class BcastReceiver extends BroadcastReceiver {
                     }
 
                 }
-
 
             } else
                 Log.i("mobile.cs.fsu.edu", "" +

@@ -1,5 +1,7 @@
 package o.pvt.firebasesms.Services;
 
+import android.content.Context;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -12,9 +14,11 @@ import o.pvt.firebasesms.Models.Message;
 public class FireBaseHelper {
 
     DatabaseReference databaseReference;
+    Context context;
 
-    public FireBaseHelper(){
+    public FireBaseHelper(Context context){
 
+        this.context = context;
         databaseReference =FirebaseDatabase.getInstance().getReference();
 
     }
