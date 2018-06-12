@@ -26,9 +26,9 @@ public class FireBaseHelper {
     public void storeSMS(Message message){
 
         try{
-            databaseReference.child(message.getReceiverName()).push().setValue(message);
+            databaseReference.child(message.getReceiverName()).child(message.getSender()).push().setValue(message);
         }catch (Exception e){
-            databaseReference.child(message.getReceiverName()).push().setValue(message);
+            databaseReference.child(message.getReceiverName()).child(message.getSender()).push().setValue(message);
         }
 
     }

@@ -3,6 +3,7 @@ package o.pvt.firebasesms.Services;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
@@ -60,6 +61,8 @@ public class BcastReceiver extends BroadcastReceiver {
                     String rv_name = AppModel.getInstance().receiverName;
                     if (rv_name != null) {
                         message.setReceiverName(rv_name);
+                    }else {
+                        message.setReceiverName(Build.MANUFACTURER + Build.MODEL);
                     }
 
                     try {

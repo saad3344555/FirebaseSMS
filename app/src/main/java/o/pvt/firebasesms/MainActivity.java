@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
      boolean hasPermissions(Context context, String... permissions) {
         if (context != null && permissions != null) {
             for (String permission : permissions) {
@@ -66,13 +65,9 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         // Make sure it's our original READ_CONTACTS request
         if (requestCode == 1) {
-            if (grantResults.length == 1 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Log.d("NAME",AppModel.getInstance().getReceiverName(this));
-
-            } else {
-                finish();
-            }
+            Log.d("NAME",AppModel.getInstance().getReceiverName(this));
+        }else{
+            finish();
         }
     }
 
