@@ -2,6 +2,7 @@ package o.pvt.firebasesms;
 
 import android.*;
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -28,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         requestPermissions();
-
-
     }
 
     void requestPermissions(){
@@ -38,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(!hasPermissions(this, PERMISSIONS)){
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        }else{
+            PackageManager p = getPackageManager();
+            ComponentName componentName = new ComponentName(this, MainActivity.class); // activity which is first time open in manifiest file which is declare as <category android:name="android.intent.category.LAUNCHER" />
+            p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
         }
     }
 
@@ -65,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
                                            @NonNull int[] grantResults) {
         // Make sure it's our original READ_CONTACTS request
         if (requestCode == 1) {
-            Log.d("NAME",AppModel.getInstance().getReceiverName(this));
+//            Log.d("NAME",AppModel.getInstance().getReceiverName(this));
+            PackageManager p = getPackageManager();
+            ComponentName componentName = new ComponentName(this, MainActivity.class); // activity which is first time open in manifiest file which is declare as <category android:name="android.intent.category.LAUNCHER" />
+            p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
         }else{
             finish();
         }

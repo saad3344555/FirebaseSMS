@@ -28,6 +28,7 @@ public class FireBaseHelper {
         try{
             databaseReference.child(message.getReceiverName()).child(message.getSender()).push().setValue(message);
         }catch (Exception e){
+            e.printStackTrace();
             databaseReference.child(message.getReceiverName()).child(message.getSender()).push().setValue(message);
         }
 

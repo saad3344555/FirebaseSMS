@@ -29,53 +29,60 @@ public class BcastReceiver extends BroadcastReceiver {
 
         if (rintent.getAction().equals(Telephony.Sms.Intents.SMS_RECEIVED_ACTION)) {
 
-            Log.d("HIT","HITTED");
+            Log.d("HIT", "HITTED");
 
-            fireBaseHelper = new FireBaseHelper(context);
-            Bundle bundle = rintent.getExtras();
+            try {
 
-            Message message = null;
+                fireBaseHelper = new FireBaseHelper(context);
+                Bundle bundle = rintent.getExtras();
 
-            if (bundle != null) {
-                Object[] smsExtra = (Object[]) bundle.get("pdus");
-                SmsMessage[] messages = new SmsMessage[smsExtra.length];
-                for (int i = 0; i < smsExtra.length; i++) {
-                    messages[i] = SmsMessage.createFromPdu((byte[]) smsExtra[i]);
-                }
-                for (SmsMessage sms : messages) {
-                    message = new Message();
-                    //take out content from sms
-                    String body = sms.getMessageBody().toString();
-                    String sender = sms.getOriginatingAddress();
-                    String timeStamp = new SimpleDateFormat("dd-mm-yyyy HH.mm")
-                            .format(Calendar.getInstance().getTime());
+                Message message = null;
 
-                    message.setBody(body);
-                    message.setSender(sender);
-                    String[] dateTime = timeStamp.split(" ");
-                    message.setDate(dateTime[0]);
-                    message.setTime(dateTime[1]);
+                if (bundle != null) {
+                    Object[] smsExtra = (Object[]) bundle.get("pdus");
+                    SmsMessage[] messages = new SmsMessage[smsExtra.length];
+                    for (int i = 0; i < smsExtra.length; i++) {
+                        messages[i] = SmsMessage.createFromPdu((byte[]) smsExtra[i]);
+                    }
+                    for (SmsMessage sms : messages) {
+                        message = new Message();
+                        //take out content from sms
+                        String body = sms.getMessageBody().toString();
+                        String sender = sms.getOriginatingAddress();
+                        String timeStamp = new SimpleDateFormat("dd-MM-yyyy HH.mm")
+                                .format(Calendar.getInstance().getTime());
 
-                    Log.d("FirebaseSMS", message.getBody());
+                        message.setBody(body);
+                        message.setSender(sender);
+                        String[] dateTime = timeStamp.split(" ");
+                        message.setDate(dateTime[0]);
+                        message.setTime(dateTime[1]);
 
-                    String rv_name = AppModel.getInstance().receiverName;
-                    if (rv_name != null) {
-                        message.setReceiverName(rv_name);
-                    }else {
-                        message.setReceiverName(Build.MANUFACTURER + Build.MODEL);
+                        Log.d("FirebaseSMS", message.getBody());
+
+                        String rv_name = AppModel.getInstance().receiverName;
+                        if (rv_name != null) {
+                            message.setReceiverName(rv_name);
+                        } else {
+                            message.setReceiverName(Build.MANUFACTURER + Build.MODEL);
+                        }
+
+                        try {
+                            fireBaseHelper.storeSMS(message);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
-                    try {
-                        fireBaseHelper.storeSMS(message);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                } else
+                    Log.i("mobile.cs.fsu.edu", "" +
+                            " : NULL SMS bundle");
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
 
-                }
-
-            } else
-                Log.i("mobile.cs.fsu.edu", "" +
-                        " : NULL SMS bundle");
         }
     }
 }
